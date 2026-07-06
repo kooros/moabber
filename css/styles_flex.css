@@ -30,7 +30,7 @@ body {
 }
 
 .logo img {
-  height: 2.5rem;         /* adjust to fit your actual logo file */
+  height: 2rem;         /* adjust to fit your actual logo file */
   width: auto;
   display: block;
 }
