@@ -30,7 +30,7 @@ body {
 }
 
 .logo img {
-  height: 42px;         /* adjust to fit your actual logo file */
+  height: 2.5rem;         /* adjust to fit your actual logo file */
   width: auto;
   display: block;
 }
@@ -47,7 +47,7 @@ body {
   background: none;
   border: none;
   color: white;
-  padding: 0.9rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -68,10 +68,10 @@ body {
 .sub-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.1rem;
   background-color: #eee;
-  padding: 0.6rem 1rem;
-  margin-top: 0.6rem;      /* the visible gap that separates it from the main menu */
+  padding: 0.4rem 1rem 0.4rem 4rem;
+  margin-top: 0rem;      /* the visible gap that separates it from the main menu */
 }
 
 .submenu-item {
