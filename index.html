@@ -1,22 +1,170 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kooros Moabber — Electronics &amp; Systems Architect Principal Engineer</title>
-        <link rel="icon" href="/images/favicon.ico">
-        <meta name="description" content="Portfolio of Kooros, Senior Power Electronics and High-Voltage Systems Engineer, Gothenburg, Sweden.">
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kooros Moabber | Portfolio</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
-    
-    <h1 style = "color: blue;font-family: Arial, sans-serif;text-align:center;">Hello <b>World!</b></h1>
-    <pre style = "font-size:300%; text-align:center;">
-    Website is under construction
-    Activates in <mark>two weeks</mark>
-    </pre>
-    <a href="https://www.google.com" target="_blank">Google</a>
+
+<div class="menu-bar">
+  <div class="logo">
+    <img src="images/logo.png" alt="Kooros Moabber logo">
+  </div>
+  <nav class="main-menu" id="main-menu">
+    <!-- rendered by JS from the data object below -->
+  </nav>
+</div>
+
+<nav class="sub-menu" id="sub-menu">
+  <!-- rendered by JS based on which main-menu item is active -->
+</nav>
+
+<main id="content">
+  <!-- content is FETCHED from a separate file in /content and injected here -->
+  <p>Loading...</p>
+</main>
+
+<footer>
+  <p>&copy; 2026 Kooros Moabber</p>
+</footer>
+
+<script>
+/* ============================================================
+   1) DATA — this is the ONLY place menu structure lives.
+      Each sub-item points to a separate content file (fragment
+      only — no <html>/<head>/<body> in those files).
+      Add a new item later = add one line here + one new file.
+   ============================================================ */
+const siteData = {
+  about: {
+    label: "About Me",
+    submenus: {
+      summary:      { label: "Summary",      file: "content/about-summary.html" },
+      experience:   { label: "Experience",   file: "content/about-experience.html" },
+      competences:  { label: "Competences",  file: "content/about-competences.html" }
+    }
+  },
+  projects: {
+    label: "Projects",
+    submenus: {
+      automotive: { label: "Automotive", file: "content/projects-automotive.html" },
+      research:   { label: "Research",   file: "content/projects-research.html" }
+    }
+  },
+  education: {
+    label: "Education",
+    submenus: {
+      academic:     { label: "Academic",     file: "content/education-academic.html" },
+      professional: { label: "Professional", file: "content/education-professional.html" },
+      certificates: { label: "Certificates", file: "content/education-certificates.html" }
+    }
+  },
+  awards: {
+    label: "Awards & Memberships",
+    submenus: {
+      awardsList:  { label: "Awards",      file: "content/awards-list.html" },
+      patents:     { label: "Patents",     file: "content/awards-patents.html" },
+      memberships: { label: "Memberships", file: "content/awards-memberships.html" }
+    }
+  },
+  contact: {
+    label: "Contact",
+    submenus: null,           // no sub-menu for Contact
+    file: "content/contact.html"
+  }
+};
+
+/* ============================================================
+   2) STATE
+   ============================================================ */
+let activeMain = "about";
+let activeSub = "summary";
+
+/* ============================================================
+   3) RENDER FUNCTIONS
+   ============================================================ */
+function renderMainMenu() {
+  const nav = document.getElementById("main-menu");
+  nav.innerHTML = "";
+  Object.keys(siteData).forEach(key => {
+    const btn = document.createElement("button");
+    btn.textContent = siteData[key].label;
+    btn.className = "menu-item" + (key === activeMain ? " active" : "");
+    btn.addEventListener("click", () => selectMain(key));
+    nav.appendChild(btn);
+  });
+}
+
+function renderSubMenu() {
+  const subNav = document.getElementById("sub-menu");
+  subNav.innerHTML = "";
+  const section = siteData[activeMain];
+
+  if (!section.submenus) {
+    subNav.style.display = "none";
+    return;
+  }
+  subNav.style.display = "flex";
+
+  Object.keys(section.submenus).forEach(key => {
+    const btn = document.createElement("button");
+    btn.textContent = section.submenus[key].label;
+    btn.className = "submenu-item" + (key === activeSub ? " active" : "");
+    btn.addEventListener("click", () => selectSub(key));
+    subNav.appendChild(btn);
+  });
+}
+
+/* Fetches the fragment file for whatever is currently active
+   and injects it into the content area. */
+function loadContent() {
+  const content = document.getElementById("content");
+  const section = siteData[activeMain];
+  const file = section.submenus ? section.submenus[activeSub].file : section.file;
+
+  content.innerHTML = "<p>Loading...</p>";
+
+  fetch(file)
+    .then(response => {
+      if (!response.ok) throw new Error("File not found: " + file);
+      return response.text();
+    })
+    .then(html => {
+      content.innerHTML = html;
+    })
+    .catch(error => {
+      content.innerHTML = "<p>Sorry, this content could not be loaded.</p>";
+      console.error(error);
+    });
+}
+
+/* ============================================================
+   4) EVENT HANDLERS
+   ============================================================ */
+function selectMain(key) {
+  activeMain = key;
+  const section = siteData[key];
+  activeSub = section.submenus ? Object.keys(section.submenus)[0] : null;
+  renderMainMenu();
+  renderSubMenu();
+  loadContent();
+}
+
+function selectSub(key) {
+  activeSub = key;
+  renderSubMenu();
+  loadContent();
+}
+
+/* ============================================================
+   5) INIT
+   ============================================================ */
+renderMainMenu();
+renderSubMenu();
+loadContent();
+</script>
+
 </body>
-  
 </html>
