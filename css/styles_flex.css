@@ -1,0 +1,163 @@
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   MENU BAR (logo + main menu, combined into one dark bar)
+   ============================================================ */
+.menu-bar {
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;   /* darker than sub-menu, clearly "top level" */
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem 0.6rem 0;
+}
+
+.logo img {
+  height: 42px;         /* adjust to fit your actual logo file */
+  width: auto;
+  display: block;
+}
+
+/* ============================================================
+   MAIN MENU
+   ============================================================ */
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: #404040;
+}
+
+.menu-item.active {
+  background-color: #555555;
+  font-weight: bold;
+}
+
+/* ============================================================
+   SUB MENU
+   ============================================================ */
+.sub-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: #eee;
+  padding: 0.6rem 1rem;
+  margin-top: 0.6rem;      /* the visible gap that separates it from the main menu */
+}
+
+.submenu-item {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submenu-item:hover {
+  background-color: #ddd;
+}
+
+.submenu-item.active {
+  background-color: #2a2a2a;
+  color: white;
+  border-color: #2a2a2a;
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+main {
+  padding: 1.5rem;
+  min-height: 300px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main h2 {
+  margin-top: 0;
+  color: #2a2a2a;
+}
+
+main ul {
+  padding-left: 1.2rem;
+}
+
+main li {
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 600px) {
+  .menu-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-item {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+
+  .sub-menu {
+    flex-direction: column;
+  }
+
+  .submenu-item {
+    width: 100%;
+    text-align: left;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}

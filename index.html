@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kooros Moabber | Electronics &amp; Systems Architect Principal Engineer</title>
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="/images/favicon_AI.ico">
+    <link rel="stylesheet" href="css/styles_fix.css">
   </head>
 <body>
 
 <div class="menu-bar">
-  <div class="logo">
-    <img src="images/logo.png" alt="Kooros Moabber logo">
+  <div class="logo" id="logo" role="button" tabindex="0" onclick="selectMain('about')" style="cursor:pointer;">
+      <img src="images/logo_trans.png" alt="Kooros Moabber logo">
   </div>
   <nav class="main-menu" id="main-menu">
     <!-- rendered by JS from the data object below -->
@@ -32,12 +32,7 @@
 </footer>
 
 <script>
-/* ============================================================
-   1) DATA — this is the ONLY place menu structure lives.
-      Each sub-item points to a separate content file (fragment
-      only — no <html>/<head>/<body> in those files).
-      Add a new item later = add one line here + one new file.
-   ============================================================ */
+/* Menu Structure */
 const siteData = {
   about: {
     label: "About Me",
@@ -77,15 +72,11 @@ const siteData = {
   }
 };
 
-/* ============================================================
-   2) STATE
-   ============================================================ */
+/* Start STATE */
 let activeMain = "about";
 let activeSub = "summary";
 
-/* ============================================================
-   3) RENDER FUNCTIONS
-   ============================================================ */
+/* RENDER FUNCTIONS */
 function renderMainMenu() {
   const nav = document.getElementById("main-menu");
   nav.innerHTML = "";
@@ -118,8 +109,7 @@ function renderSubMenu() {
   });
 }
 
-/* Fetches the fragment file for whatever is currently active
-   and injects it into the content area. */
+/* Fetches Content */
 function loadContent() {
   const content = document.getElementById("content");
   const section = siteData[activeMain];
@@ -141,9 +131,7 @@ function loadContent() {
     });
 }
 
-/* ============================================================
-   4) EVENT HANDLERS
-   ============================================================ */
+/*    EVENT HANDLERS  */
 function selectMain(key) {
   activeMain = key;
   const section = siteData[key];
@@ -159,9 +147,7 @@ function selectSub(key) {
   loadContent();
 }
 
-/* ============================================================
-   5) INIT
-   ============================================================ */
+/* INIT */
 renderMainMenu();
 renderSubMenu();
 loadContent();

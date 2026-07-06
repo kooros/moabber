@@ -16,21 +16,29 @@ body {
    MENU BAR (logo + main menu, combined into one dark bar)
    ============================================================ */
 .menu-bar {
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 4rem;
+  right: 0;
+  z-index: 1000;   /* stays above content */
   align-items: center;
   background-color: #1a1a1a;   /* darker than sub-menu, clearly "top level" */
-  padding: 0 1rem;
-  flex-wrap: wrap;
+  padding: 0.3rem 0 3rem 0;
 }
 
 .logo {
-  display: flex;
+  background-color: #1a1a1a;   /* darker than sub-menu, clearly "top level" */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;   /* stays above content */
   align-items: center;
-  padding: 0.6rem 1rem 0.6rem 0;
+  padding: 0.4rem 0.4rem ; /* top and bottom 04rem and left/right 02rem */
 }
 
 .logo img {
-  height: 42px;         /* adjust to fit your actual logo file */
+  height: 2.5rem;         /* adjust to fit your actual logo file */
   width: auto;
   display: block;
 }
@@ -39,38 +47,40 @@ body {
    MAIN MENU
    ============================================================ */
 .main-menu {
-  display: flex;
-  flex-wrap: wrap;
+  position: fixed;
+  background-color: #1a1a1a;   /* darker than sub-menu, clearly "top level" */
+  z-index: 1000;   /* stays above content */
 }
 
 .menu-item {
   background: none;
   border: none;
   color: white;
-  padding: 0.9rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .menu-item:hover {
-  background-color: #333;
+  background-color: #404040;
 }
 
 .menu-item.active {
-  background-color: #444;
+  background-color: #555555;
   font-weight: bold;
 }
 
-/* ============================================================
-   SUB MENU
-   ============================================================ */
+/*  SUB MENU */
 .sub-menu {
-  display: flex;
-  flex-wrap: wrap;
+  position: fixed;
+  top: 2.5rem;       /* height of menu-bar (adjust if needed) */
+  left: 0;      /* adjust to fit your actual logo width */
+  right: 0;
+  z-index: 999;
   gap: 0.5rem;
   background-color: #eee;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 1rem 0.4rem 4rem;
   margin-top: 0.6rem;      /* the visible gap that separates it from the main menu */
 }
 
@@ -94,14 +104,12 @@ body {
   border-color: #2a2a2a;
 }
 
-/* ============================================================
-   CONTENT
-   ============================================================ */
+/* CONTENT */
 main {
-  padding: 1.5rem;
+  padding-top: 120px;   /* menu-bar + sub-menu height */
   min-height: 300px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 0;  /* top margin to push content below the fixed menu */  
 }
 
 main h2 {
@@ -117,9 +125,7 @@ main li {
   margin-bottom: 0.4rem;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/*    FOOTER */
 footer {
   background-color: #2a2a2a;
   color: white;
@@ -128,9 +134,7 @@ footer {
   font-size: 0.85rem;
 }
 
-/* ============================================================
-   RESPONSIVE — MOBILE
-   ============================================================ */
+/*  RESPONSIVE — MOBILE */
 @media (max-width: 600px) {
   .menu-bar {
     flex-direction: column;
