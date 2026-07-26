@@ -115,7 +115,94 @@ main ul {
 
 main li {
   margin-bottom: 0.4rem;
+  margin-left: 1rem;
 }
+
+main p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.profile-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 180px;          /* adjust size as you prefer */
+  border-radius: 8px;    /* optional: rounded corners */
+  object-fit: cover;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-text p {
+  text-align: justify;   /* your preferred paragraph style */
+}
+
+
+/* ============================================================
+   experience section
+   ============================================================ */
+
+.experience-section h3 {
+  margin-top: 1.5rem;
+  color: #2a2a2a;
+}
+
+.experience-section h4 {
+  margin: 0.2rem 0;
+  color: #444;
+  font-weight: normal;
+}
+
+.exp-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.experience-block ul {
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.experience-block li {
+  margin-bottom: 0.4rem;
+}
+
+
+/* ============================================================
+   IT SKILLS / TOOLS SECTION
+   ============================================================ */
+
+.tools-section h3 {
+  margin-top: 1.5rem;
+  color: #2a2a2a;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.3rem;
+}
+
+.tools-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.8rem 0 1.5rem 0;
+}
+
+.tools-section li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tools-section li:last-child {
+  border-bottom: none;
+}
+
 
 /* ============================================================
    FOOTER
@@ -127,6 +214,7 @@ footer {
   padding: 1rem;
   font-size: 0.85rem;
 }
+
 
 /* ============================================================
    RESPONSIVE — MOBILE
@@ -150,11 +238,24 @@ footer {
 
   .sub-menu {
     flex-direction: column;
+    align-items: center;
   }
 
   .submenu-item {
     width: 100%;
     text-align: left;
+    
+  }
+
+  .profile-summary {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .profile-photo {
+    width: 60%;
+    max-width: 240px;
   }
 
   main {
