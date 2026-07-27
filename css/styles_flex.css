@@ -217,14 +217,14 @@ main p {
 }
 
 .tools-section ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0.8rem 0 1.5rem 0;
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1.2rem;
 }
 
 .tools-section li {
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .tools-section li:last-child {
