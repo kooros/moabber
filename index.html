@@ -51,7 +51,7 @@ const siteData = {
     }
   },
   education: {
-    label: "Education",
+    label: "Education & Certificates",
     submenus: {
       academic:     { label: "Academic",     file: "content/education-academic.html" },
       professional: { label: "Professional", file: "content/education-professional.html" },
@@ -59,7 +59,7 @@ const siteData = {
     }
   },
   awards: {
-    label: "Awards & Memberships",
+    label: "Awards & Patents",
     submenus: {
       awardsList:  { label: "Awards",      file: "content/awards-list.html" },
       patents:     { label: "Patents",     file: "content/awards-patents.html" },
@@ -68,8 +68,10 @@ const siteData = {
   },
   contact: {
     label: "Contact",
-    submenus: null,           // no sub-menu for Contact
-    file: "content/contact.html"
+    submenus: {
+      contacts:  { label: "Contact",      file: "content/contact-contact.html" },
+      contact_form:   { label: "Contact Form",     file: "content/contact-form.html" }
+    }
   }
 };
 
