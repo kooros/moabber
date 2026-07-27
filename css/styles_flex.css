@@ -250,6 +250,65 @@ main p {
   border-bottom: none;
 }
 
+/* ============================================================
+   Projects
+   ============================================================ */
+
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-image img {
+    width: 100%;
+  }
+}
+
+.project-content h3 {
+  margin-top: 0;
+}
+
+.project-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-desc {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.project-outcomes li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+
+
 
 /* ============================================================
    Publications
@@ -358,6 +417,14 @@ footer {
   .profile-photo {
     width: 60%;
     max-width: 240px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image img {
+    width: 100%;
   }
 
   main {
