@@ -205,6 +205,61 @@ main p {
 
 
 /* ============================================================
+   Publications
+   ============================================================ */
+
+.publications h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.2rem;
+}
+
+.publications ul {
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.publications li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+
+/* ============================================================
+   Certificates
+   ============================================================ */
+
+
+.certificates h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.2rem;
+}
+
+.certificates ul {
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.certificates li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.certificates li strong {
+  color: #333;
+}
+
+
+
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
