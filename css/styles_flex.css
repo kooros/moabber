@@ -175,6 +175,34 @@ main p {
   margin-bottom: 0.4rem;
 }
 
+/* ============================================================
+   Competences
+   ============================================================ */
+
+.competences h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.2rem;
+}
+
+.competences ul {
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.competences li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.competences li strong {
+  color: #333;
+}
+
+
 
 /* ============================================================
    IT SKILLS / TOOLS SECTION
