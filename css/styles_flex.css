@@ -151,13 +151,31 @@ main p {
 
 .experience-section h3 {
   margin-top: 1.5rem;
+  font-size: 1.2rem;
   color: #2a2a2a;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.2rem;
 }
 
 .experience-section h4 {
   margin: 0.2rem 0;
   color: #444;
   font-weight: normal;
+}
+
+.exp-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.exp-header h4 {
+  margin: 0;
+}
+
+.exp-header .exp-meta {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .exp-meta {
@@ -182,7 +200,7 @@ main p {
 .competences h3 {
   margin-top: 1.5rem;
   font-size: 1.2rem;
-  color: #333;
+  color: #2a2a2a;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.2rem;
 }
